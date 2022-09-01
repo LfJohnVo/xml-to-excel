@@ -21,7 +21,7 @@ class ExcelConverter extends Component
     public function submit()
     {
         $validatedData = $this->validate([
-            'files.*' => 'required',
+            'files.*' => 'required|mimes:xml',
         ]);
 
         foreach ($this->files as $file) {
