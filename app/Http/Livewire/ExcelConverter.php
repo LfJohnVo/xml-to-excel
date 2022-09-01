@@ -29,6 +29,7 @@ class ExcelConverter extends Component
         }
 
         $this->emit('refrescar');
+        $this->refresh(['files']);
         $this->alert('success', 'Archivos cargados correctamente');
     }
 
@@ -80,6 +81,7 @@ class ExcelConverter extends Component
 
             Excel::store(new FacturaExport($array_r), $date->format('Y-m-d') . '-report.xlsx', 'excel');
             $this->alert('success', 'Excel generado correctamente');
+            $this->emit('refrescar');
             Storage::delete($path);
 
         }
